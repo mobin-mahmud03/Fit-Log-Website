@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className="navbar bg-[#0d0d0e] text-white px-4 border-b border-gray-800">
    
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white">
             <svg
               aria-label="Menu"
@@ -63,7 +63,7 @@ const Navbar = () => {
 
      
       <div className="navbar-center hidden lg:flex">
-        <div className="flex items-center gap-1 p-1 rounded-full border border-gray-800">
+        <div className="flex items-center gap-1 p-1 rounded-full">
           <button
             onClick={() => setActiveTab('workouts')}
             className={`btn btn-sm rounded-full border-none font-semibold text-xs px-5 ${
