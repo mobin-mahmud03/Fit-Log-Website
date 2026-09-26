@@ -3,12 +3,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import logo from '@/assets/logo.png'
+import logo from '@/assets/logo.png';
 import { usePlan } from '@/context/PlanContext';
 
 const Navbar = () => {
   const pathname = usePathname();
-  const { planItems, savedItems } = usePlan();
+  const { planItems = [], savedItems = [] } = usePlan();
+
   const planCount = planItems.length;
   const savedCount = savedItems.length;
 
@@ -19,7 +20,7 @@ const Navbar = () => {
     <div className="navbar bg-[#0d0d0e] text-white px-4 border-b border-gray-800">
 
       <div className="navbar-start">
-        <div className="dropdown ">
+        <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-white">
             <svg
               aria-label="Menu"
@@ -60,13 +61,11 @@ const Navbar = () => {
           </ul>
         </div>
 
-
         <Link href="/" className="btn btn-ghost text-xl normal-case flex items-center gap-2 hover:bg-transparent text-white">
           <Image src={logo} alt="FitLog logo" />
           <span className="font-extrabold tracking-wider uppercase">FITLOG</span>
         </Link>
       </div>
-
 
       <div className="navbar-center hidden lg:flex">
         <div className="flex items-center gap-1 p-1 rounded-full">
@@ -74,8 +73,8 @@ const Navbar = () => {
             href="/"
             className={`btn btn-sm rounded-full border-none font-semibold text-xs px-5 ${
               isWorkouts
-                ? 'bg-[#1e2904] text-[#a8f000] '
-                : 'btn-ghost text-gray-400 '
+                ? 'bg-[#1e2904] text-[#a8f000]'
+                : 'btn-ghost text-gray-400'
             }`}
           >
             Workouts
@@ -93,18 +92,23 @@ const Navbar = () => {
         </div>
       </div>
 
-
       <div className="navbar-end gap-5">
         <Link href="/my-plan" className="flex items-center gap-2 cursor-pointer text-sm hover:opacity-80 transition-opacity">
           <span className="text-gray-300">Plan</span>
-          <span className="badge badge-sm bg-[#a8f000] text-black border-none font-bold p-2.5">
+          <span 
+            suppressHydrationWarning 
+            className="badge badge-sm bg-[#a8f000] text-black border-none font-bold p-2.5"
+          >
             {planCount}
           </span>
         </Link>
 
         <Link href="/my-plan" className="flex items-center gap-2 cursor-pointer text-sm hover:opacity-80 transition-opacity">
           <span className="text-gray-300">Saved</span>
-          <span className="badge badge-sm badge-outline text-gray-300 border-gray-600 font-bold p-2.5">
+          <span 
+            suppressHydrationWarning 
+            className="badge badge-sm badge-outline text-gray-300 border-gray-600 font-bold p-2.5"
+          >
             {savedCount}
           </span>
         </Link>
