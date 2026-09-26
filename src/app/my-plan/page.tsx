@@ -193,10 +193,7 @@ function Page() {
                       <span className="flex items-center gap-1">
                         ⏱ {item.duration || 10} min
                       </span>
-                      <span className="flex items-center gap-1">
-                        <Flame className="w-3 h-3 text-orange-500 fill-orange-500" />
-                        {item.calories || 95} kcal
-                      </span>
+                      <span>{item.caloriesBurned} kcal</span>
                       <span className="flex items-center gap-1">
                         <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                         {item.rating || 4.7}
