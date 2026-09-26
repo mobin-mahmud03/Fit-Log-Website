@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/Components/shared/Navbar";
 import { PlanProvider } from "@/context/PlanContext";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/Components/Homepage/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,12 +23,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-black">
+    <html lang="en" data-theme="dark" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-[#0b0c0f]">
         <PlanProvider>
           <Navbar />
           {children}
           <Toaster position="bottom-center" />
+          <Footer />
         </PlanProvider>
       </body>
     </html>

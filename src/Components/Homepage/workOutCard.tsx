@@ -10,7 +10,8 @@ const WorkOutCard = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch("https://api.abcz.workers.dev/api/fitlog", {
+      //const res = await fetch("https://api.abcz.workers.dev/api/fitlog", {
+      const res = await fetch("https://api.api-store.workers.dev/api/fitlog", {
         method: "GET",
       });
       const data = await res.json();
@@ -21,7 +22,7 @@ const WorkOutCard = () => {
   }, []);
 
   return (
-    <section className="min-h-screen bg-[#0b0c0f] px-4 py-8 text-white">
+    <section id="library" className="min-h-screen bg-[#0b0c0f] px-4 py-8 text-white">
       <div className="mx-auto max-w-7xl">
         <div className="mb-5">
           <h2 className="text-2xl font-extrabold">THE LIBRARY</h2>

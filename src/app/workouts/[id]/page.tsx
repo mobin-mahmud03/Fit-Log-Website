@@ -18,7 +18,8 @@ const Page = () => {
 
     useEffect(() => {
         const getData = async () => {
-            const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`, { method: "GET" });
+            //const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`, { method: "GET" });
+            const res = await fetch(`https://api.api-store.workers.dev/api/fitlog/${id}`, { method: "GET" });
             const data = await res.json();
             setWorkout(data);
             setLoading(false);

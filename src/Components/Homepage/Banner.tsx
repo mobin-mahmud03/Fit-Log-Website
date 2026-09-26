@@ -5,7 +5,7 @@ import banner from '@/assets/banner.png';
 const Banner = () => {
   return (
     <section className="bg-[#15171d] container mx-auto grid grid-cols-1 items-center gap-8 rounded-2xl lg:grid-cols-2 mt-8 lg:mt-16 p-6 sm:p-10 text-white">
-      {/* Left Content */}
+    
       <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
         <p className="mb-3 text-[#a8f000] font-inter text-xs font-semibold uppercase tracking-wider">
           WORKOUT LIBRARY
@@ -29,7 +29,7 @@ const Banner = () => {
         </a>
       </div>
 
-      {/* Right Image */}
+     
       <div className="flex justify-center items-center w-full mt-4 lg:mt-0">
         <div className="relative aspect-square w-full max-w-xs sm:max-w-sm lg:max-w-md">
           <Image
