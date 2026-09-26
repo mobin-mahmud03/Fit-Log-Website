@@ -5,15 +5,16 @@ import { useParams } from "next/navigation";
 import { Clock, Flame, Star } from "lucide-react";
 import { Workout } from "@/types/workout";
 import toast from "react-hot-toast";
-
+import { usePlan } from "@/context/PlanContext";
 
 const Page = () => {
     const { id } = useParams();
 
     const [workout, setWorkout] = useState<Workout | null>(null);
+    const { addToPlan, addToSaved, isInPlan, isSaved } = usePlan();
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    
+
 
     useEffect(() => {
         const getData = async () => {
@@ -117,16 +118,24 @@ const Page = () => {
 
                     <div className="mt-6 flex gap-3">
                         <button
-                            onClick={() => toast.success("Added to today's plan!")}
-                            className="btn rounded-full border-none bg-[#a8f000] px-6 text-black hover:bg-[#a8f000]/90"
+                            disabled={isInPlan(workout.id)}
+                            onClick={() => {
+                                addToPlan(workout);
+                                toast.success("Added to today's plan!");
+                            }}
+                            className="btn rounded-full border-none bg-[#a8f000] px-6 text-black hover:bg-[#a8f000]/90 disabled:opacity-40"
                         >
-                            Add to Plan
+                            {isInPlan(workout.id) ? "Added to Plan" : "Add to Plan"}
                         </button>
                         <button
-                            onClick={() => toast("Saved for later")}
-                            className="btn btn-outline rounded-full border-gray-600 px-6 text-gray-300"
+                            disabled={isSaved(workout.id)}
+                            onClick={() => {
+                                addToSaved(workout);
+                                toast.success("Saved for later!");
+                            }}
+                            className="btn btn-outline rounded-full border-gray-600 px-6 text-gray-300 disabled:opacity-40"
                         >
-                            Save
+                            {isSaved(workout.id) ? "Saved" : "Save"}
                         </button>
                     </div>
                 </div>
