@@ -12,6 +12,7 @@ type PlanItem = {
   equipment: string;
   duration?: number;
   calories?: number;
+  caloriesBurned: number;
   rating?: number;
 };
 
