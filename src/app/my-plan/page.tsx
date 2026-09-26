@@ -159,7 +159,7 @@ function Page() {
             Browse the library and add a fit to get moving.
           </p>
           <Link
-            href="/workouts"
+            href="#library"
             className="bg-[#ccff00] text-black font-extrabold text-xs px-6 py-2.5 rounded-full inline-block"
           >
             Browse workouts
