@@ -28,6 +28,9 @@ FitLog is a clean and easy-to-use fitness app. It helps you find great exercises
 
 First, start your development server with this command:
 Open Terminal and run:
+
 npm run dev
+
 Then, open your browser and go to:
+
 http://localhost:3000
