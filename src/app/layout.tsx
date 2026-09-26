@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/Components/shared/Navbar";
+import { PlanProvider } from "@/context/PlanContext";
 import { Toaster } from "react-hot-toast";
-
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,21 +22,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-black">
-        
-    
-        <Navbar />
-        
-        {children}
-        
-        <Toaster position="top-right" />
-
-        </body>
+        <PlanProvider>
+          <Navbar />
+          {children}
+          <Toaster position="bottom-center" />
+        </PlanProvider>
+      </body>
     </html>
   );
 }
